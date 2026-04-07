@@ -8,7 +8,6 @@ import Services from './components/Services';
 import Packages from './components/Packages';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
-import Calendar from './components/Calendar';
 import ContactModal from './components/ContactModal';
 import { SALON } from './data/content';
 

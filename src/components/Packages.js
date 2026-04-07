@@ -1,12 +1,12 @@
 // src/components/Packages.js
-import React, { useState } from 'react';
+import React from 'react';
 import { PACKAGES } from '../data/content';
 import { useInView } from '../hooks/useInView';
 import './Packages.css';
 
-const icon = <span className='gallery_find img'>
+/*const icon = <span className='gallery_find img'>
   <img src="/icons/forget.png" alt="forget" />
-</span>
+</span>*/
 
 export default function Packages({ onContact }) {
   const [ref, inView] = useInView();

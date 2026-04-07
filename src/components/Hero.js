@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { SALON, STATS } from '../data/content';
 import './Hero.css';
 
-const waLink = `https://wa.me/${SALON.phone}?text=${encodeURIComponent(SALON.waMessage)}`;
+//const waLink = `https://wa.me/${SALON.phone}?text=${encodeURIComponent(SALON.waMessage)}`;
 
 export default function Hero({ onContact }) {
   const [imgIdx, setImgIdx] = useState(0);
