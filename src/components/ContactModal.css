@@ -1,0 +1,269 @@
+/* src/components/ContactModal.css */
+
+.cm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, .75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fadeIn .2s var(--ease);
+}
+
+@media (min-width: 640px) {
+  .cm-backdrop {
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
+
+.cm-modal {
+  background: #fff;
+  border-radius: var(--r-xs) var(--r-xs) 0 0;
+  width: 100%;
+  max-width: 600px;
+  max-height: 94svh;
+  overflow-y: auto;
+
+  /* 🔥 ocultar scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge viejo */
+
+  animation: slideUp .32s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@media (min-width: 640px) {
+  .cm-modal {
+    border-radius: var(--r-xs);
+    animation: scaleIn .28s cubic-bezier(.34, 1.56, .64, 1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Close */
+.cm-close {
+  position: sticky;
+  top: 14px;
+  float: right;
+  margin: .875rem .875rem 0 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  color: var(--text-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--t);
+  z-index: 10;
+  border: none;
+  font-family: inherit;
+  font-size: .9rem;
+}
+
+.cm-close:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Header */
+.cm-header {
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  padding: 0 1.75rem 1.25rem;
+  border-bottom: 2px solid var(--purple-l);
+  clear: both;
+}
+
+.cm-emoji {
+  max-width: 3rem;
+  font-size: 2.25rem;
+  line-height: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.cm-title {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.cm-subtitle {
+  font-size: .8rem;
+  color: var(--text-m);
+  margin-top: 3px;
+}
+
+/* Body */
+.cm-body {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+/* Form grid */
+.cm-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+/* Error global */
+.cm-error-global {
+  background: #fff0f0;
+  border: 2px solid #fecaca;
+  border-radius: var(--r-lg);
+  color: var(--red);
+  padding: .75rem 1rem;
+  font-size: .85rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.cm-footer {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--gray-100);
+}
+
+.cm-submit {
+  flex: 1;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.cm-submit img {
+  width: 1rem;
+}
+
+.cm-wa {
+  flex-shrink: 0;
+  font-size: .82rem;
+}
+
+/* Spinner */
+.cm-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, .3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+/* Note */
+.cm-note {
+  display: flex;
+  align-items: center;
+  font-size: .72rem;
+  color: var(--text-m);
+  text-align: center;
+  margin-top: .875rem;
+  line-height: 1.5;
+}
+
+.cm-note img {
+  width: 1rem;
+  margin-right: .2rem;
+}
+
+/* Success */
+.cm-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.cm-success-emoji {
+  font-size: 4rem;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+.cm-success-title {
+  font-family: var(--ff-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cm-success-text {
+  font-size: .95rem;
+  color: var(--text-m);
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.cm-success-text strong {
+  color: var(--purple);
+}
+
+.cm-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .cm-modal__header {
+    padding: 0 1.25rem 1rem;
+  }
+
+  .cm-body {
+    padding: 1.25rem;
+  }
+
+  .cm-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cm-footer {
+    flex-direction: column;
+  }
+
+  .cm-submit,
+  .cm-wa {
+    width: 100%;
+  }
+}
+
+.cm-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.cm-modal::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  height: 20px;
+  display: block;
+  background: linear-gradient(transparent, rgba(0,0,0,0.05));
+}

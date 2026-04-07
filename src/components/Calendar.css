@@ -1,0 +1,192 @@
+/* src/components/Calendar.css */
+
+.calendar-section { background: var(--white); }
+
+.calendar-header { max-width: 580px; margin-bottom: 2.5rem; }
+
+.calendar-sub {
+  font-size: .97rem;
+  color: var(--text-m);
+  line-height: 1.7;
+  margin-top: .5rem;
+}
+
+.calendar-wrap {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Calendar ── */
+.cal {
+  background: var(--off-white);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+  border: 2px solid var(--gray-100);
+}
+
+.cal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.cal__nav {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--purple-l);
+  color: var(--purple);
+  font-size: 1.3rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all var(--t) var(--bounce);
+  border: none; font-family: inherit; line-height: 1;
+}
+.cal__nav:hover { background: var(--purple); color: #fff; transform: scale(1.1); }
+
+.cal__month {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.cal__day-name {
+  text-align: center;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-m);
+  padding: .3rem 0;
+}
+
+.cal__day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r);
+  font-size: .85rem;
+  font-weight: 600;
+  transition: all var(--t) var(--bounce);
+  font-family: var(--ff-body);
+  line-height: 1;
+}
+
+.cal__day--available {
+  background: var(--green-l);
+  color: #1e7e34;
+  cursor: pointer;
+  border: 1.5px solid rgba(107,207,127,.3);
+}
+.cal__day--available:hover {
+  background: var(--green);
+  color: #fff;
+  transform: scale(1.18);
+  box-shadow: 0 4px 14px rgba(107,207,127,.45);
+}
+
+.cal__day--booked {
+  background: #FFE5E5;
+  color: #c0392b;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  border: 1.5px solid rgba(192,57,43,.15);
+}
+
+.cal__day--past { color: var(--gray-300); }
+.cal__day--weekday { color: var(--gray-300); }
+
+.cal__legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.cal__legend-item {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  color: var(--text-m);
+  font-weight: 600;
+}
+
+.cal__legend-dot {
+  width: 13px; height: 13px;
+  border-radius: 3px;
+}
+.cal__legend-dot--available { background: var(--green-l); border: 2px solid var(--green); }
+.cal__legend-dot--booked    { background: #FFE5E5; border: 2px solid #c0392b; }
+.cal__legend-dot--weekday   { background: var(--gray-100); border: 2px solid var(--gray-300); }
+
+/* ── CTA Card ── */
+.calendar-cta {
+  background: linear-gradient(135deg, var(--purple) 0%, #fd79a8 100%);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.calendar-cta__emoji {
+  font-size: 3rem;
+  line-height: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.calendar-cta__title {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.calendar-cta__desc {
+  font-size: .88rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.65;
+}
+
+.calendar-cta__btn {
+  background: #fff;
+  color: var(--purple);
+  font-size: .9rem;
+  width: 100%;
+  justify-content: center;
+}
+.calendar-cta__btn:hover { background: var(--yellow); color: var(--ink); transform: translateY(-2px); }
+
+.calendar-cta__note {
+  font-size: .75rem;
+  color: rgba(255,255,255,.68);
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .calendar-wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .cal { padding: 1.25rem; }
+  .cal__day { font-size: .78rem; }
+}

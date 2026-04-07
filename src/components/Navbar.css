@@ -1,0 +1,222 @@
+/* src/components/Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 1rem 0;
+  transition: all var(--t) var(--ease);
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(20px);
+  padding: .625rem 0;
+  box-shadow: 0 2px 0 rgba(108, 92, 231, .08), 0 4px 24px rgba(108, 92, 231, .1);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-shrink: 0;
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.navbar__brand-icon {
+  font-size: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.navbar__brand-name {
+  white-space: nowrap;
+  color: rgb(255, 255, 255)
+}
+
+.navbar--scrolled .navbar__brand-name {
+  color: var(--ink);
+  /* o #222 */
+}
+
+.navbar__nav {
+  display: flex;
+  gap: .1rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__link {
+  font-size: .82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  padding: .35rem .7rem;
+  border-radius: var(--r-full);
+  transition: color var(--t), background var(--t);
+}
+
+.navbar__link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar--scrolled .navbar__link {
+  color: var(--text-m);
+}
+
+.navbar--scrolled .navbar__link:hover {
+  color: var(--purple);
+  background: var(--purple-l);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-shrink: 0;
+}
+
+.navbar__wa {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  border: 2px solid rgba(234, 234, 234, 0.3);
+  border-radius: var(--r-full);
+  padding: .4rem .875rem;
+  transition: all var(--t);
+}
+
+.navbar--scrolled .navbar__wa {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #25D366;
+  border: 2px solid rgba(37, 211, 102, .3);
+  border-radius: var(--r-full);
+  padding: .4rem .875rem;
+  transition: all var(--t);
+}
+
+.navbar__wa:hover {
+  background: rgba(37, 211, 102, .08);
+  border-color: #25D366;
+}
+
+.navbar__cta {
+  font-weight: 500;
+  font-size: .82rem;
+  padding: .55rem 1.2rem;
+  color: #e8e8e8;
+  border: 2px solid rgba(234, 234, 234, 0.3);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.navbar--scrolled .navbar__cta {
+  font-size: .82rem;
+  padding: .55rem 1.2rem;
+  color: rgba(98, 34, 207, 0.8);
+  border: 2px solid rgba(98, 34, 207, 0.4);
+  background-color: transparent;
+}
+
+.navbar__cta:hover {
+  font-size: .82rem;
+  padding: .55rem 1.2rem;
+  border: 2px solid rgba(98, 34, 207, 0.8);
+  background-color: rgba(98, 34, 207, 0.1);
+}
+
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  margin-left: auto
+}
+
+.navbar__burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform var(--t), opacity var(--t);
+  transform-origin: center;
+}
+
+.navbar--scrolled .navbar__burger span {
+  background: var(--gray-500);
+  /* 🔥 oscuro */
+}
+
+.navbar__burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__mobile {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  margin: 1rem 0 0;
+  padding: .875rem var(--gutter) 1.25rem;
+  background: rgba(255, 255, 255, .98);
+  backdrop-filter: blur(20px);
+  animation: fadeIn .18s var(--ease);
+}
+
+.navbar__mobile-link {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text-m);
+  padding: .625rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  transition: color var(--t);
+}
+
+.navbar__mobile-link:hover {
+  color: var(--purple);
+}
+
+.navbar__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: .625rem;
+}
+
+@media (max-width: 860px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__actions {
+    display: none;
+  }
+
+  .navbar__burger {
+    display: flex;
+  }
+}

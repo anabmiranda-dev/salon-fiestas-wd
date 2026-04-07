@@ -1,0 +1,58 @@
+/* src/components/Testimonials.css */
+.testimonials { background: var(--off-white); }
+.testimonials__header { max-width: 580px; margin-bottom: 3rem; }
+.testimonials__sub { font-size: .97rem; color: var(--text-m); line-height: 1.7; margin-top: .5rem; }
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.tcard {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  position: relative; overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+.tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(108,92,231,.12);
+  border-color: var(--tc, var(--purple));
+}
+.tcard__accent {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px; background: var(--tc, var(--purple));
+  opacity: 0; transition: opacity var(--t);
+}
+.tcard:hover .tcard__accent { opacity: 1; }
+
+.tcard__top {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+}
+.tcard__avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-display); font-size: 1.15rem; font-weight: 700;
+  color: #fff; flex-shrink: 0;
+}
+.tcard__name { font-family: var(--ff-display); font-size: .95rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.tcard__role { font-size: .72rem; color: var(--text-m); margin-top: 2px; }
+.tcard__stars { display: flex; gap: 2px; margin-left: auto; }
+
+.tcard__text { font-size: .88rem; color: var(--text-m); line-height: 1.7; flex: 1; }
+.tcard__date { font-size: .72rem; color: var(--gray-300); font-weight: 600; }
+
+/* Rating bar */
+.testimonials__rating-bar {
+  display: flex; align-items: center; gap: .75rem;
+  background: var(--yellow); border-radius: var(--r-full);
+  padding: .875rem 1.75rem; width: fit-content;
+  font-size: .88rem; color: var(--ink);
+}
+.testimonials__stars { display: flex; gap: 3px; }
+.testimonials__rating-bar strong { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 700; }
